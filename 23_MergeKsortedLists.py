@@ -34,5 +34,3 @@ class Solution:
             current = current.next
         
         return dummy.next #애초에 dummy 객체는 ListNode(0)을 가르키고 있었고, dummy.next가 data의 시작점 주소를 지니고 있다.
-
-        #코딩테스트 훈련 공간 리트코드 문제풀이 위주로 학습하며, 초보자들도 수월하게 이해할 수 있도록. 최대한 자세하게 주석을 달아 해석하고자 합니다.
