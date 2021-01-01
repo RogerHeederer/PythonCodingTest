@@ -30,4 +30,4 @@ class Solution:
             #result = max('', expand(0,0), expand(0,1)) = max('', s[0:1], s[1:1]) = s[0:2] #문자열이 긴게 값이 더 큼
             #result = max('ba', expand(1,1), expand(1,2)) = max('b', s[0:3], s[2:2])
             #result = max('bab', expand(2,2), expand(2,3)) = max('bab', s[0:5], s[3:3])
-            #result = max('babab', expand(3,3), expand(3,4)) = max('babab', s[2:5], s[4:4])/
+            #result = max('babab', expand(3,3), expand(3,4)) = max('babab', s[2:5], s[4:4]).

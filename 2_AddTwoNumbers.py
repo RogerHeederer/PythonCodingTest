@@ -54,4 +54,4 @@ class Solution:
         print('exit...')
         
         print(head)
-        return head.next #head.next부터가 합계 값이 계산된 노드들이다..
+        return head.next #head.next부터가 합계 값이 계산된 노드들이다....
