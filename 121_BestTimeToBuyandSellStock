@@ -1,0 +1,22 @@
+#아이디어 _ 기본적으로 가장 쌀 때 사서 가장 비쌀 때 파는 것이 이윤의 최대화
+# 각 타임 스탭마다 가장 적은 값을 기록해둔다.
+
+#[7, 1, 5, 3, 6, 4]
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        profit = 0
+        min_price = float('inf') # min 값을 양의 무한대로 임의 설정
+        
+        for price in prices:
+            # 현재 가격과, 그 동안의 제일 적은 값을 비교, 맨 처음은 무한대 값과 비교하기 때문에, 현재 값이 가장 적은값이 됨
+            # 현재 가격과 그 간의 최소값을 뺀다면, 그게 현재의 profit이 됨
+            # 그 profit을 매번 기억해뒀다가, 계속 이 과정을 반복해서 생기는 profit과 비교한다면 최대의 이익을 찾을 수 있음
+            min_price = min(price, min_price) 
+            profit = max(profit, price - min_price)
+            
+            print("price:{}, min_price:{}, profit:{}".format(price, min_price, profit))
+            # price : 7 -- min_price : 7 -- profit : 0
+            # price : 1 -- min_price : 1 -- profit : 0
+            # price : 5 -- min_price : 1 -- profit : 4
+            # price : 3 -- min_price : 1 -- profit : 5
+            # price : 6 -- min_price : 1 -- profit : 5
