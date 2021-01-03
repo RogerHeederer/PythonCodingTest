@@ -8,9 +8,10 @@ class Solution:
         min_price = float('inf') # min 값을 양의 무한대로 임의 설정
         
         for price in prices:
-            # 현재 가격과, 그 동안의 제일 적은 값을 비교, 맨 처음은 무한대 값과 비교하기 때문에, 현재 값이 가장 적은값이 됨
-            # 현재 가격과 그 간의 최소값을 뺀다면, 그게 현재의 profit이 됨
-            # 그 profit을 매번 기억해뒀다가, 계속 이 과정을 반복해서 생기는 profit과 비교한다면 최대의 이익을 찾을 수 있음
+            # 현재 price - 지금까지의 최소값 =  현재의 이익
+            # 현재의 이익과, 지금 가지고 있는 profit을 비교해서 max 값을 도출. 이 profit을 매번 기억해둠
+            # 끝까지 다 돌고나면 최대의 이익이 나옴
+            # 맨 처음은 무한대 값과 비교하기에 첫 시작 price가 현재 가장 작은 값이 됨
             min_price = min(price, min_price) 
             profit = max(profit, price - min_price)
             
