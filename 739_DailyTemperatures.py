@@ -15,22 +15,27 @@
 # 위 아이디어를 코드로 구현하면 된다.
 
 class Solution:
-
     def dailyTemperatures(self, T):
-        result = [0]*len(T)
+        # T = [73, 74, 75, 71, 69, 72, 76, 73]
+        
+        result = [0] * len(T)
         stack = []
-
-        for i in range(len(T)-1, -1, -1):
-            while stack and stack[-1][1] <= T[i]: #현재 날씨가 미래 날씨보다 따뜻하다면
-                stack.pop()                       #그 날씨는 고려대상이 아니기에 빼버린다.
-            if stack and stack[-1][1] > T[i]:     #현재 날씨가 미래 날씨보다 춥다면
-                result[i] = stack[-1][0] - i      #결과 리스트에 해당 미래날씨 일자 - 현재 일자를 해서 넣어준다.
-            stack.append([i, T[i]])               #그리고 현재 날씨를 stack에 넣어준다.
-
+        
+        #stack은 [ [index, value], [index, value] ....] 이렇게 구성시킬 예정
+        # index는 현재 날짜를 의미한다고 생각하면 되고, value는 그 날짜의 온도를 의미
+        
+        for i in range(len(T)-1, -1, -1): # 역방향으로 살펴본다.
+            #스택에 값이 있고, 스택의 마지막 값의 value(온도)가 현재 시점(i)의 온도보다 낮다면
+            while stack and stack[-1][1] <= T[i]:
+                stack.pop() # 마지막 값의 온도는 고려대상이 아니니 빼버린다. 우리는 따뜻한 것만 찾으면 돼
+                
+            if stack and stack[-1][1] > T[i]: # 스택의 마지막 값 온도가 i 시점의 온도보다 높다면
+                result[i] = stack[-1][0] - i #그 따뜻한 온도의 인덱스에 현재 시점의 온도를 빼서 넣어준다
+                
+            stack.append([i, T[i]]) #그리고 현재 날짜와 온도를 스택 마지막 값에 넣어준다.
+            
         print(result)
-
-
-arr = [73,74,75,71,69,72,76,73]
-
+    
 test = Solution()
-test.dailyTemperatures(arr)
+T = [73, 74, 75, 71, 69, 72, 76, 73]
+test.dailyTemperatures(T)
