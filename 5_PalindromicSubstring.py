@@ -26,8 +26,16 @@ class Solution:
                          expand(i,i), # 1개의 자리수만 고려하여 확장하는 방식 (홀수 확장)
                          expand(i, i+1), # 이어진 2개의 자리수를 고려하여 확장하는 방식 (짝수 확장)
                          key = len) #기준은 길이값. 리턴 받은 문자열에 len함수 적용을 자동으로 시킨다.
-            
-            #result = max('', expand(0,0), expand(0,1)) = max('', s[0:1], s[1:1]) = s[0:2] #문자열이 긴게 값이 더 큼
-            #result = max('ba', expand(1,1), expand(1,2)) = max('b', s[0:3], s[2:2])
-            #result = max('bab', expand(2,2), expand(2,3)) = max('bab', s[0:5], s[3:3])
-            #result = max('babab', expand(3,3), expand(3,4)) = max('babab', s[2:5], s[4:4]).
+        
+        print(result)
+            #Test case = "bababd"
+            #동작원리 : i값을 0에서부터 시작해서 1,2,3,4, 한칸씩 계속 옮겨가고, 그때마다 left, right를 i에서 좌,우로 한칸씩 확장시키면서
+            #palindrom인지 확인을 계속 해내가는 과정
+            #result = max('', expand(0,0), expand(0,1)) = max('', s[0:1], s[1:1]) = max('', 'b', '')
+            #result = max('ba', expand(1,1), expand(1,2)) = max('b', s[0:3], s[2:2]) = max('b', 'bab', '')
+            #result = max('bab', expand(2,2), expand(2,3)) = max('bab', s[0:5], s[3:3]) = max('bab', babab, '')
+            #result = max('babab', expand(3,3), expand(3,4)) = max('babab', s[2:5], s[4:4]) = max('babab', 'bab', '')
+
+test = Solution()
+s = "bababd"
+test.longestPalindrome(s)

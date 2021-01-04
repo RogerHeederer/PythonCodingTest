@@ -7,9 +7,9 @@ class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         results = []
         nums.sort()
-        
+        # i는 0부터 시작하고 left는 1부터 시작한다. 즉 i는 본인 기준 왼쪽에 있는 원소들과만 동일한지 비교하면 된다 (i와 left가 같은건 상관없고, i가 같은 원소끼리 중복해서 작업할 필요가 없다.)
         for i in range(len(nums) - 2):
-            if i > 0 and nums[i] == nums[i-1]:
+            if i > 0 and nums[i] == nums[i-1]: 
                 continue
                 
             left, right = i+1, len(nums)-1
@@ -34,8 +34,8 @@ class Solution:
                     #여기서 옮기는 작업을 한번 더 하는 이유는, 정답을 찾았고, 그 조합 이외에 다른 조합이 있는지 확인하는 단계
                     #[-4, -3, -2, -1, 0, 1, 2, 3, 4] 여기서 나올 수 있는 케이스는 첫번째로 [-4(i), 0(left), 4(right)]이 있다
                     # -4는 여전히 고정한 채, -4, 1(left), 3(right)도 나올 수 있다. 이처럼 현재 찾은 조합 이외에 다른 조합이 더 있을 수 있기에
-                    # 주어진 i값에서, left right를 계속 옮겨본다. left나 right 중 하나만 옮기면 안되나? 이런 생각을 할 수 있는데
-                    # 0 = -4 + 0 + ?  : ?에 들어갈 수 있는 해는 1개가 유일하다. 그래서 ?를 2개 만들어서 둘다 옮겨봐야 함
+                    # 현재 고정된 i값에서, left right를 계속 옮겨본다. left나 right 중 하나만 옮기면 안되나? 이런 생각을 할 수 있는데
+                    # 0 = -4 + 0 + ?  : ?에 들어갈 수 있는 해는 1개가 유일하다. 그래서 ?를 2개 만들어서 둘다 옮겨봐야 다른 해를 발견할 수 있다.
         return results
 
                     
