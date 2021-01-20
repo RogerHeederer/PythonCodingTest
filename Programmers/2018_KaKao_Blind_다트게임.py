@@ -1,3 +1,4 @@
+#우리밋 유투버 자료 참고
 import re
 def solution(dartResult):
     
@@ -36,6 +37,6 @@ def solution(dartResult):
     answer = ''.join(results)
     answer = answer[:-1]
     print(eval(answer))
-    
+
 #solution('1S2D*3T')
 solution('1D2S3T*')
